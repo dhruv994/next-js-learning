@@ -2,15 +2,15 @@ import Heading from "../../../components/Heading";
 import ShareLinkBUtton from "../../../components/SharLinkButton";
 import { getReview, getSlugs } from "../../../lib/reviews";
 
-export async function staticParams() {
-    console.log("***Generate Static Params Start***");
+export const revalidate = 60;
+
+export async function generateStaticParams() {
     const slugs = await getSlugs();
-    console.log("***Generate Static Params end***",slugs);
-    return slugs.map((slug) => { slug });
+    return slugs.map((slug) => {  slug });
 }
 // fix "dynamic server usage" errors in dev mode by turning off static generation and forcing dynamic rendering
-export const generateStaticParams =  process.env.NODE_ENV ===  staticParams;
-export const dynamic =  process.env.NODE_ENV === "production" ? 'auto' : 'force-dynamic';
+// export const generateStaticParams =  process.env.NODE_ENV ===  staticParams;
+// export const dynamic =  'force-static'
 
 
 export async function generateMetadata({ params: { slug } }) {
