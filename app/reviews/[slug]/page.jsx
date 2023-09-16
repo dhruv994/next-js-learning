@@ -2,10 +2,12 @@ import Heading from "../../../components/Heading";
 import ShareLinkBUtton from "../../../components/SharLinkButton";
 import { getReview, getSlugs } from "../../../lib/reviews";
 
-// export async function  generateStaticParams() {
-//     const slugs = await getSlugs();
-//     return slugs.map((slug) => { slug });
-// }
+export async function generateStaticParams() {
+    console.log("***Generate Static Params Start***");
+    const slugs = await getSlugs();
+    console.log("***Generate Static Params end***",slugs);
+    return slugs.map((slug) => { slug });
+}
 
 export async function generateMetadata({ params: { slug } }) {
     const review = await getReview(slug);
