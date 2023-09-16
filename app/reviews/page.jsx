@@ -1,5 +1,5 @@
-import Link from 'next/Link'
-import Heading from '../../components/Heading'
+import Link from 'next/link';
+import Heading from '../../components/Heading';
 import { getReviews, getSlugs } from '../../lib/reviews';
 
 export const metadata = {
