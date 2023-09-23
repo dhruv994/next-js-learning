@@ -8,9 +8,16 @@ export default function PaginatiationBar({ page, pageCount, href }) {
 
     return (
         <div className="flex gap-2 pb-3">
-            <PaginatationLink href={`${href}?page=${page - 1}`} enabled={page > 1}><ChevronLeftIcon className='h-5 w-5' /></PaginatationLink>
+            <PaginatationLink href={`${href}?page=${page - 1}`} enabled={page > 1}>
+                <ChevronLeftIcon className='h-5 w-5' />
+                <span className='sr-only'>Previous Page</span>
+            </PaginatationLink>
+
             <span>Page {page} of {pageCount}</span>
-            <PaginatationLink href={`${href}?page=${page + 1}`} enabled={page < pageCount}><ChevronRightIcon className='h-5 w-5' /></PaginatationLink>
+            <PaginatationLink href={`${href}?page=${page + 1}`} enabled={page < pageCount}>
+                <ChevronRightIcon className='h-5 w-5' />
+                <span className='sr-only'>Next Page</span>
+            </PaginatationLink>
         </div>)
 }
 
