@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Heading from '../../components/Heading';
 import { getReviews } from '../../lib/reviews';
 import PaginatiationBar from '../../components/PaginitationBar';
+import SearchBox from '../../components/SearchBox';
 
 export const metadata = {
     title: "Reviews"
@@ -17,11 +18,14 @@ export default async function ReviewsPage({ searchParams }) {
     return (
         <>
             <Heading > Reviews </Heading>
-            <PaginatiationBar
-                page={page}
-                pageCount={pageCount}
-                href="/reviews"
-            />
+            <div className='flex justify-between pb-3'>
+                <PaginatiationBar
+                    page={page}
+                    pageCount={pageCount}
+                    href="/reviews"
+                />
+                <SearchBox />
+            </div>
             {/* <div className="flex gap-2 pb-3">
                 <Link href={`/reviews?page=${page - 1}`}>&lt;</Link>
                 <span>Page {page} of {pageCount}</span>
