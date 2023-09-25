@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import Heading from "../../../components/Heading";
 import ShareLinkBUtton from "../../../components/SharLinkButton";
 import { getReview, getSlugs } from "../../../lib/reviews";
-
 
 
 export async function generateStaticParams() {
@@ -13,6 +13,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params: { slug } }) {
     const review = await getReview(slug);
+    if (!review) {
+        notFound();
+    }
     return {
         title: review.title
     };
@@ -22,6 +25,9 @@ export async function generateMetadata({ params: { slug } }) {
 export default async function ReviewPage({ params: { slug } }) {
     const reviews = await getReview(slug);
     // console.log('@@@@@@@ reviews',reviews);
+    if (!reviews) {
+        notFound();
+    }
     return (
         <>
             <Heading> {reviews.title}</Heading>
