@@ -10,7 +10,6 @@ export const metadata = {
 }
 const PAGE_SIZE = 3;
 
-// export const dynamic = 'force-dynamic';
 
 export default async function ReviewsPage({ searchParams }) {
     const page = parsePageParam(searchParams.page);

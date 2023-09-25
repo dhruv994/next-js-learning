@@ -4,7 +4,6 @@ import Heading from "../../../components/Heading";
 import ShareLinkBUtton from "../../../components/SharLinkButton";
 import { getReview, getSlugs } from "../../../lib/reviews";
 
-// export const dynamic = 'force-dynamic';
 
 export async function generateStaticParams() {
     const slugs = await getSlugs();
